@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FlyoutBackgroundGradientIssueApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FlyoutBackgroundGradientIssueApp"
+    xmlns:provider="clr-namespace:Android.Provider;assembly=Mono.Android"
+    Shell.FlyoutBehavior="Flyout"
+    Title="FlyoutBackgroundGradientIssueApp">
+
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="150">
+            <Image Source="flyout_header.png" Aspect="AspectFill"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+
+
+    <Shell.FlyoutBackground>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="{StaticResource Gray200}" Offset="0.0" />
+            <GradientStop Color="White" Offset="0.5" />
+        </LinearGradientBrush>
+    </Shell.FlyoutBackground>
+
+
+
+    <FlyoutItem FlyoutIcon="house_solid.png" Title="Home" FlyoutDisplayOptions="AsSingleItem" AutomationId="FlyoutHome">
+        <ShellContent Icon="house_solid.png" Title="Calculate" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" Shell.PresentationMode="Animated" />
+    </FlyoutItem>
+
+    <FlyoutItem FlyoutIcon="gear_solid.png" Title="Settings" FlyoutDisplayOptions="AsSingleItem" AutomationId="FlyoutSettings">
+        <ShellContent Icon="gear_solid.png" Title="Settings" ContentTemplate="{DataTemplate local:Settings}" Route="Settings" Shell.PresentationMode="Animated" />
+    </FlyoutItem>
+
+    <FlyoutItem FlyoutIcon="circle_info_solid.png" Title="Help" FlyoutDisplayOptions="AsSingleItem" AutomationId="FlyoutHelp">
+        <ShellContent Icon="circle_info_solid.png" Title="Help" ContentTemplate="{DataTemplate local:Help}" Route="Help" Shell.PresentationMode="Animated" IsVisible="True"/>
+    </FlyoutItem>
+
+
+
+    <Shell.FlyoutFooter>
+        <Grid HeightRequest="60" BackgroundColor="{StaticResource Gray900}">
+            <Label TextColor="White" Text="Footer Text" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </Shell.FlyoutFooter>
+
+</Shell>
